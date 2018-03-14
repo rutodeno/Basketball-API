@@ -2,9 +2,34 @@
 var gifArray = ["embiid", "sixers", "iverson", "slam dunk"];
 
 
-function alertGif() {
+function showGif() {
     var selectedGif = $(this).attr("newClass");
-    alert(selectedGif);
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q="+selectedGif+"&api_key=dc6zaTOxFJmzC&limit=10";
+
+    $.ajax({
+        url:queryURL,
+        methos:"GET"
+
+    }).then(function(response){
+
+        var allGifs = response.data;
+
+        for (var i =0; i<allGifs.length; i++){
+
+            var gifDiv = $("<div>");
+            var p=$("<p>").text("Rating: "+allGifs[i].rating);
+            var gifPic = $("<img>");
+
+            gifPic.attr("src", allGifs[i].images.fixed_height.url);
+
+            gifDiv.append(p);
+            gifDiv.append(gifPic);
+
+            $("#newGifs").append(gifDiv);
+
+        };  
+
+    });
 };
 
 
@@ -41,8 +66,13 @@ $("#find-gif").on("click", function (event) {
 
 });
 
+$(".giphy").on("click", function(){
+
+    var currentState = $(this).attr("")
+});
 
 
 
-$(document).on("click", ".giphy", alertGif);
+
+$(document).on("click", ".giphy", showGif);
 addButton();
