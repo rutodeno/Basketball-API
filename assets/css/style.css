@@ -1,8 +1,67 @@
 
+
+* {
+    box-sizing: border-box;
+}
+
 button,
 div,
 form,
 input {
 
     margin: 10px;
+}
+
+h1 {
+    text-align: center;
+    background-color: white;
+    margin: 0px 0px 10px 0px;
+    padding: 20px;
+    font-weight: bold;
+}
+.page-header {
+    background-color: white;
+    margin-top: 0px;
+}
+
+.container {
+    margin-top: 0px;
+}
+
+body {
+
+    background-image: url("../images/tileable_wood.png")
+}
+
+#newGifs {
+
+    background-color: white;
+
+}
+
+.pics {
+    position: relative;
+    margin: 10px 10px;
+    
+}
+
+p {
+    position: absolute;
+    left:0 ;
+    right: 0;
+    top:-20px;
+    margin-bottom: 20px;
+    widows: 200px;
+}
+
+img {
+    float: left;
+    margin: 10px;
+}
+
+button {
+
+    background-color: steelblue;
+    color: white;
+
 }

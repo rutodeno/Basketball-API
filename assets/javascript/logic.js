@@ -16,11 +16,17 @@ function showGif() {
 
         for (var i =0; i<allGifs.length; i++){
 
-            var gifDiv = $("<div>");
+            var gifDiv = $("<div class= 'pics'>");
             var p=$("<p>").text("Rating: "+allGifs[i].rating);
-            var gifPic = $("<img>");
+            var gifPic = $("<img >");
 
-            gifPic.attr("src", allGifs[i].images.fixed_height.url);
+            console.log(allGifs);
+
+            gifPic.attr("src", allGifs[i].images.fixed_width_still.url);
+            gifPic.attr("data-still",allGifs[i].images.fixed_width_still.url );
+            gifPic.attr("data-animate",allGifs[i].images.fixed_width.url)
+            gifPic.attr("data-state","still");
+            gifPic.addClass("gif"); 
 
             gifDiv.append(p);
             gifDiv.append(gifPic);
@@ -28,6 +34,21 @@ function showGif() {
             $("#newGifs").append(gifDiv);
 
         };  
+
+        $(".gif").on("click", function(){
+
+            var state = $(this).attr("data-state");        
+            if(state === "still") {
+                $(this).attr("src", $(this).attr("data-animate")); 
+                $(this).attr("data-state", "animate");
+        
+                } else {
+        
+                $(this).attr("src", $(this).attr("data-still")); 
+                $(this).attr("data-state", "still");
+        
+                }
+        });
 
     });
 };
@@ -59,20 +80,13 @@ $("#find-gif").on("click", function (event) {
     var addGif = $("#gif-input").val().trim();
 
     gifArray.push(addGif);
-
-    console.log("i'm  working");
-
     addButton();
 
-});
-
-$(".giphy").on("click", function(){
-
-    var currentState = $(this).attr("")
 });
 
 
 
 
 $(document).on("click", ".giphy", showGif);
+
 addButton();
