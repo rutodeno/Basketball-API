@@ -9,7 +9,7 @@ div,
 form,
 input {
 
-    margin: 10px;
+    margin: 17px;
 }
 
 h1 {
@@ -39,25 +39,26 @@ body {
 
 }
 
-.pics {
-    position: relative;
-    margin: 10px 10px;
-    
-}
-
 p {
-    position: absolute;
-    left:0 ;
-    right: 0;
-    top:-20px;
-    margin-bottom: 20px;
-    widows: 200px;
+    width: 300px;
+    margin: 0 0 3px 0;
+    font-size: 16px;
+    font-weight: bold;
 }
 
-img {
+.pics {
     float: left;
-    margin: 10px;
 }
+
+#newGifs {
+    clear: both;
+    overflow: hidden;
+}
+button.giphy {
+    clear: both;
+    overflow: hidden;
+}
+
 
 button {
 

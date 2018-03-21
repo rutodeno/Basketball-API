@@ -22,10 +22,12 @@ function showGif() {
 
             console.log(allGifs);
 
-            gifPic.attr("src", allGifs[i].images.fixed_width_still.url);
-            gifPic.attr("data-still",allGifs[i].images.fixed_width_still.url );
-            gifPic.attr("data-animate",allGifs[i].images.fixed_width.url)
+            gifPic.attr("src", allGifs[i].images.fixed_height_still.url);
+            gifPic.attr("data-still",allGifs[i].images.fixed_height_still.url );
+            gifPic.attr("data-animate",allGifs[i].images.fixed_height.url)
             gifPic.attr("data-state","still");
+            gifPic.attr("width", "300px");
+            gifPic.attr("height", "200px");
             gifPic.addClass("gif"); 
 
             gifDiv.append(p);
